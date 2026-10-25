@@ -1,0 +1,6 @@
+{
+  "name": "Azka Dental Care",
+  "description": "Premium dental clinic in Pakpattan, Pakistan offering comprehensive oral health services, checkups, root canal treatments, orthodontics, and appointments via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <script>
+      (function() {
+        try {
+          var _origFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var _currentFetch = _origFetch ? _origFetch.bind(window) : null;
+          var desc = {
+            get: function() {
+              return _currentFetch || _origFetch;
+            },
+            set: function(val) {
+              _currentFetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          };
+          try {
+            Object.defineProperty(window, 'fetch', desc);
+          } catch (e1) {}
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', desc);
+            } catch (e2) {}
+          }
+        } catch (e) {}
+
+        // Suppress external browser extension script exceptions
+        window.addEventListener('error', function(e) {
+          if (e && e.filename && e.filename.indexOf('chrome-extension://') !== -1) {
+            e.preventDefault();
+          }
+        });
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azka Dental Care</title>
+    <meta name="description" content="Premium dental clinic in Pakpattan, Pakistan offering comprehensive oral health services, checkups, root canal treatments, orthodontics, and appointments via WhatsApp." />
+    <meta property="og:title" content="Azka Dental Care" />
+    <meta property="og:description" content="Premium dental clinic in Pakpattan, Pakistan offering comprehensive oral health services, checkups, root canal treatments, orthodontics, and appointments via WhatsApp." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/assets/aistudio/Azka_Dental_Care_Gold_Emblem_87bb3877.png" />
+    <link rel="apple-touch-icon" href="/assets/aistudio/Azka_Dental_Care_Gold_Emblem_87bb3877.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-slate-800 antialiased selection:bg-teal-100 selection:text-teal-900 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
